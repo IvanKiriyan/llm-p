@@ -12,11 +12,11 @@ class UsecaseAuth: #бизнес-логика регистрации и логи
         if existing:
             raise MailAlreadyExist(f"Email {email} уже существует")
         secured = secure_password(password)
-        return await self._user_repo.create(email=email, secure_password=secured)
+        return await self._user_repo.create(email=email, password_hash=secured)
     
     async def login(self, email: str, password: str) -> str:
         user = await self._user_repo.get_user_email(email)
-        if not user or not check_password(password, user.secure_password):
+        if not user or not check_password(password, user.password_hash):
             raise WrongPassword("Неверная почта или пароль")
         return token_acess_password(user_id=user.id, role=user.role)
     

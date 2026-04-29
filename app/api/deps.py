@@ -47,6 +47,6 @@ async def get_current_user_id(token: str = Depends(oauth2_scheme)) -> int: #ло
     except (JWTError, KeyError, ValueError):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            details="Неверный токен или истек срок действия"
-            headers={"WWW-Authenticate": "Bearer"}
+            details="Неверный токен или истек срок действия",
+            headers={"WWW-Authenticate": "Bearer"},
         )

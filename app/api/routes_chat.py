@@ -36,7 +36,7 @@ async def get_history(
             "id": m.id,
             "role": m.role,
             "content": m.content,
-            "created_at": m.created.at,
+            "created_at": m.created_at,
         }
         for m in messages
     ]

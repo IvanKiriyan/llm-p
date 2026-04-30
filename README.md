@@ -59,6 +59,9 @@ uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 Swagger UI доступен по адресу: http://0.0.0.0:8000/docs
 
+### Ruff Check
+![check](screenshots/ruff.png)
+
 ## Демонстрация работы эндпоинтов
 
 ### 1. Регистрация пользователя — POST /auth/register
